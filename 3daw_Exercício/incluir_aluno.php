@@ -20,15 +20,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $nome = $_POST["nome"];
     $emai = $_POST["email"];
     $data = $_POST["dataNasc"];
-    $arquivoAluno = fopen("Aluno.txt", "r") or die ("Arquivo com problema");
-    echo "imprimir conteudo: " .fgets($arquivoAluno);
+    if(!file_exists("Aluno.txt")){
+        $header ="matricula;nome;email;dataNasc\n";
+        $arquivoAluno = fopen("Aluno.txt","w");
+        fwrite ($arquivoAluno , $header);
+        fclose($arquivoAluno);
+    }
+    $arquivoAluno = fopen("Aluno.txt","a") or die ("Arquivo com problema");
+    $linha = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
+    fwrite($arquivoAluno, $linha);
     fclose($arquivoAluno);
-    $arquivoAluno2 = fopen("Aluno.txt","w") or die ("Arquivo com problema");
-    $header ="matricula;nome;email;dataNasc\n";
-    fwrite($arquivoAluno2,$header);
-        $linha = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
-    fwrite($arquivoAluno2, $linha);
-    fclose($arquivoAluno2);
 }    
 ?>
 <form action= "incluir_aluno.php" method = POST>
