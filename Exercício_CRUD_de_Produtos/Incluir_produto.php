@@ -24,13 +24,13 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $valor = $_GET["valor"];
     $quant = $_GET["quantidade"];
     $peso = $_GET["peso"];
-    if(!file_exists("produtos.txt")){
-        $header ="matricula;nome;email;dataNasc\n";
-        $arquivoAluno = fopen("produtos.txt","w");
+    if(!file_exists("produto.txt")){
+        $header ="id;nome;cod;descrição;imagem;valor;quantidade;peso\n";
+        $arquivoAluno = fopen("Produto.txt","w");
         fwrite ($arquivoAluno , $header);
         fclose($arquivoAluno);
     }
-    $arquivoProduto = fopen("produtos.txt","a") or die ("Arquivo com problema");
+    $arquivoProduto = fopen("Produto.txt","a") or die ("Arquivo com problema");
     $linha = $id . ";" . $nome . ";" . $codigo. ";" . $descrição .";" . $imagem .";" . $valor .";" . $quant .";" . $peso . "\n";
     fwrite($arquivoProduto, $linha);
     fclose($arquivoProduto);
@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         <form action= "Incluir_produto.php" method = POST>
             <input type="submit" value="Incluir">
         </form>
-        <form action= "Alterar_produto.html" method = POST>
+        <form action= "Alterar_produto.php" method = POST>
             <input type="submit" value="Alterar">
         </form>
         <form action= "Listar_todos.php" method = POST>
