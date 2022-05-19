@@ -20,38 +20,44 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $nome = $_POST["nome"];
     $emai = $_POST["email"];
     $data = $_POST["dataNasc"];
-    if(!file_exists("Aluno.txt")){
-        $header ="matricula;nome;email;dataNasc\n";
-        $arquivoAluno = fopen("Aluno.txt","w");
-        fwrite ($arquivoAluno , $header);
-        fclose($arquivoAluno);
-    }
-    $arquivoAlunoIn = fopen("Novos Aluno.txt", "r") or die ("Arquivo com problema");
-    while(!feof($arquivoAluno1In)){
-        $linhas [] = fgets($arquivoAlunoIn);
-        $colunaDados = explode (";", $linha);
-        if($colunaDados[0] = $matricula){
-            $nome = $colunaDados[1];
-            $emai = $colunaDados[2];
+    $linha_final = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
+    $arquivo = fopen('Aluno.txt','r+');
+    $arquivo2 = fopen('Aluno2.txt', 'w');
+    if ($arquivo){
+    while(true){ 
+        $linha = fgets($arquivo);
+        if ($linha==null) break;
+        if(preg_match("/$matricula/", $linha)){
+        $linha_inicio=$linha;
+        $string = str_replace($linha_inicio, $linha_final, $linha);
+        } else {
+        $string = $linha;
         }
+        fwrite($arquivo2, $string);
+        }
+    fclose($arquivo);
+    fclose($arquivo2);
     }
-    $arquivoAluno = fopen("Aluno.txt", "r") or die ("Arquivo com problema");
-    $linha = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
-    fwrite($arquivoAluno, $linha);
-    fclose($arquivoAluno);
-    $arquivoAluno = fopen("Aluno.txt","a") or die ("Arquivo com problema");
-    $linha = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
-    fwrite($arquivoAluno, $linha);
-    fclose($arquivoAluno);
+    $arquivo2 = fopen('Aluno2.txt','r+');
+    $arquivo = fopen('Aluno.txt', 'w');
+    if ($arquivo){
+        while(true){ 
+            $linha = fgets($arquivo2);
+            if ($linha==null) break;
+            $string = $linha;
+            fwrite($arquivo, $string);
+        }
+        fclose($arquivo);
+        fclose($arquivo2);
+    }
 }    
 ?>
-<form action= "verificar_existencia.php" method = POST>
-    Matrícula:<input type= text name= "matricula" value=''><br>
+<form action= "Editar.php" method = POST>
+    Digite a Matrícula que deseja alterar:<input type= text name= "matricula" value=''><br>
     Nome:<input type= text name= "nome" value=''><br>
     email:<input type= text name= "email" value=''><br>
     Data Nascimento:<input type= text name= "dataNasc" value=''><br>
-    <input type="submit" value="enviar">
+    <input type="submit" value="alterar">
 </form>
-
 </body>
 </html>
