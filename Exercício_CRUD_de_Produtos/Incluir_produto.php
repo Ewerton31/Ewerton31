@@ -13,27 +13,38 @@
 </head>
 
 <body>
-<h1>Incluir Produto</h1>
+<h1>Excluir</h1>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="GET"){
     $id = $_GET["id"];
-    $nome = $_GET["nome"];
-    $codigo = $_GET["cod"];
-    $descrição = $_GET["descrição"];
-    $imagem = $_GET["imagem"];
-    $valor = $_GET["valor"];
-    $quant = $_GET["quantidade"];
-    $peso = $_GET["peso"];
-    if(!file_exists("produto.txt")){
-        $header ="id;nome;cod;descrição;imagem;valor;quantidade;peso\n";
-        $arquivoAluno = fopen("Produto.txt","w");
-        fwrite ($arquivoAluno , $header);
-        fclose($arquivoAluno);
+    $arquivo = fopen('Produto.txt','r+');
+    $arquivo2 = fopen('Produto2.txt', 'w');
+    if ($arquivo){
+    while(true){ 
+        $linha = fgets($arquivo);
+        if ($linha==null) break;
+        if(preg_match("/$id/", $linha)){
+            echo nl2br("Arquivo Excluido com sucesso/n");
+        } else {
+        $string = $linha;
+        fwrite($arquivo2, $string);
+        }
+        }
+    fclose($arquivo);
+    fclose($arquivo2);
     }
-    $arquivoProduto = fopen("Produto.txt","a") or die ("Arquivo com problema");
-    $linha = $id . ";" . $nome . ";" . $codigo. ";" . $descrição .";" . $imagem .";" . $valor .";" . $quant .";" . $peso . "\n";
-    fwrite($arquivoProduto, $linha);
-    fclose($arquivoProduto);
+    $arquivo2 = fopen('Produto2.txt','r+');
+    $arquivo = fopen('Produto.txt', 'w');
+    if ($arquivo){
+        while(true){ 
+            $linha = fgets($arquivo2);
+            if ($linha==null) break;
+            $string = $linha;
+            fwrite($arquivo, $string);
+        }
+        fclose($arquivo);
+        fclose($arquivo2);
+    }
 }    
 ?>
 <table>
@@ -54,18 +65,10 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
             <input type="submit" value="Excluir">
         </form>
     </tr>
+    <form action= "Excluir.php" method = GET>
+        <br>Digite a Matrícula que deseja Excluir:<input type= text name= "id" value=''><br>
+        <input type="submit" value="Excluir">
+    </form>
 </table>
-<form action= "Incluir_produto.php" method = GET>
-    ID:<input type= text name= "id" value=''><br>
-    Nome:<input type= text name= "nome" value=''><br>
-    Código de barras:<input type= text name= "cod" value=''><br>
-    Descrição:<input type= text name= "descrição" value=''><br>
-    URL da imagem do produto:<input type= text name= "imagem" value=''><br>
-    Valor:<input type= text name= "valor" value=''><br>
-    Quantidade:<input type= text name= "quantidade" value=''><br>
-    Peso:<input type= text name= "peso" value=''><br>
-    <input type="submit" value="enviar">
-</form>
-
 </body>
-</html>
+</html
