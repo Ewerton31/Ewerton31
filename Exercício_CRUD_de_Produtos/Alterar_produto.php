@@ -15,68 +15,45 @@
 <body>
 <h1>Alterar Produto</h1>
 <?php
-if($_SERVER["REQUEST_METHOD"]=="GET"){
-    $id = $_GET["id"];
-    $nome = $_GET["nome"];
-    $codigo = $_GET["cod"];
-    $descrição = $_GET["descrição"];
-    $imagem = $_GET["imagem"];
-    $valor = $_GET["valor"];
-    $quant = $_GET["quantidade"];
-    $peso = $_GET["peso"];
-    $linha_final = $id . ";" . $nome . ";" . $codigo. ";" . $descrição .";" . $imagem .";" . $valor .";" . $quant .";" . $peso . "\n";
-    $arquivo = fopen('Produto.txt','r+');
-    $arquivo2 = fopen('Produto2.txt', 'w');
-    if ($arquivo){
-    while(true){ 
-        $linha = fgets($arquivo);
-        if ($linha==null) break;
-        if(preg_match("/$id/", $linha)){
-        $linha_inicio=$linha;
-        $string = str_replace($linha_inicio, $linha_final, $linha);
-        } else {
-        $string = $linha;
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $id = $_POST["id"];
+    $arquivoAlunoIn = fopen("produtos.txt", "r") or die ("Arquivo com problema");
+    while(!feof($arquivoAlunoIn)){
+        $linhas[] = fgets($arquivoAlunoIn);
+        if($colunaDados[0] = $id){
+            $nome=$colunaDados[3];
+            $emai=$colunaDados[5];
+            $data=$colunaDados[7];
         }
-        fwrite($arquivo2, $string);
-        }
-    fclose($arquivo);
-    fclose($arquivo2);
-    }
-    $arquivo2 = fopen('Produto2.txt','r+');
-    $arquivo = fopen('Produto.txt', 'w');
-    if ($arquivo){
-        while(true){ 
-            $linha = fgets($arquivo2);
-            if ($linha==null) break;
-            $string = $linha;
-            fwrite($arquivo, $string);
-        }
-        fclose($arquivo);
-        fclose($arquivo2);
-    }
-}        
+    }  
+    $arquivoAluno = fopen("Aluno2.txt", "w");
+    $header ="matricula;nome;email;dataNasc\n";
+    $linha = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
+    fwrite($arquivoAluno, $header);
+    fwrite($arquivoAluno, $linha);
+    fclose($arquivoAluno);  
+}    
 ?>
 <table>
     <tr>
         <form action= "Incluir_produto.php" method = POST>
             <input type="submit" value="Incluir">
         </form>
-        <form action= "Alterar_produto.php" method = POST>
+        <form action= "Alterar_produto.html" method = POST>
             <input type="submit" value="Alterar">
         </form>
         <form action= "Listar_todos.php" method = POST>
             <input type="submit" value="Listar Todos">
         </form>
-        <form action= "Listar_um.php" method = POST>
+        <form action= "Listar_um.html" method = POST>
             <input type="submit" value="Listar um">
         </form>
-        <form action= "Excluir.php" method = POST>
+        <form action= "Excluir.html" method = POST>
             <input type="submit" value="Excluir">
         </form>
     </tr>
 </table>
-<form action= "Alterar_produto.php" method = GET>
-    Digite o ID a ser alterado:<input type= text name= "id" value=''><br>
+<form action= "Alterar_produto.html" method = POST>
     Nome:<input type= text name= "nome" value=''><br>
     Código de barras:<input type= text name= "cod" value=''><br>
     Descrição:<input type= text name= "descrição" value=''><br>
