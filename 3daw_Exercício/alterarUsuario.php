@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 }    
 ?>
-<form action= "Editar.php" method = POST>
+<form action= "alterarUsuario.php" method = POST>
     Digite a Matrícula que deseja alterar:<input type= text name= "matricula" value=''><br>
     Nome:<input type= text name= "nome" value=''><br>
     email:<input type= text name= "email" value=''><br>
