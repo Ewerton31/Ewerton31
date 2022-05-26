@@ -57,10 +57,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }    
 ?>
 <form action= "Alterar_aluno.html" method = POST>
-    Matricula:<input type= text name= "matricula"  value=<?php echo $matricula?> readonly><br>
-    Nome:<input type= text name= "nome" value=<?php echo $nome ?>><br>
-    email:<input type= text name= "email" value=<?php echo $emai ?>><br>
-    Data Nascimento:<input type= text name= "dataNasc" value=<?php echo $data ?>><br>
+    Matricula:<input type= text name= "matricula" value=<?php echo $matricula ?> disabled=""><br>
+    Nome:<input type= text name= "nome" value=<?php echo $nome ?> disabled=""><br>
+    email:<input type= text name= "email" value=<?php echo $emai ?> disabled=""><br>
+    Data Nascimento:<input type= text name= "dataNasc" value=<?php echo $data ?> disabled=""><br>
     <input type="submit" value="alterar outor">
 </form>
 </body>
