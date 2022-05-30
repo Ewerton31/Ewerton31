@@ -38,13 +38,18 @@
 if($_SERVER["REQUEST_METHOD"]=="GET"){
     $matricula = $_GET["matricula"];
     $arquivo = fopen('Usuario.txt','r+');
+    $cont = 0;
     if ($arquivo){
     while(true){ 
         $linha = fgets($arquivo);
         if ($linha==null) break;
         if(preg_match("/$matricula/", $linha)){
             echo nl2br("$linha\n");
+            $cont = 1;
         }
+    }
+    if($cont==0){
+        echo nl2br("Arquivo Não encontrado\n");
     }
     fclose($arquivo);
     }
