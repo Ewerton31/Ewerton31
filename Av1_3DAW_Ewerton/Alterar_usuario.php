@@ -14,11 +14,31 @@
 
 <body>
 <h1>Usuario Alterado com Sucesso</h1>
+<table>
+    <tr>
+        <form action= "Criar_Usuario.php" method = POST>
+            <input type="submit" value="Criar">
+        </form>
+        <form action= "Alterar_Usuario.html" method = POST>
+            <input type="submit" value="Alterar">
+        </form>
+        <form action= "Lista_todos_usuarios.php" method = POST>
+            <input type="submit" value="Listar Todos">
+        </form>
+        <form action= "Lista_um_usuario.php" method = POST>
+            <input type="submit" value="Listar um">
+        </form>
+        <form action= "Excluir_usuario.php" method = POST>
+            <input type="submit" value="Excluir">
+        </form>
+    </tr>
+</table>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $matricula = $_POST["matricula"];
     $nome = $_POST["nome"];
     $function = $_POST["function"];
+    $cont=0;
     $linha_final = $matricula . ";" . $nome . ";" . $function. "\n";
     $arquivo = fopen('Usuario.txt','r+');
     $arquivo2 = fopen('Usuario_Rarcunho.txt', 'w');
@@ -32,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $colunaDados = explode(";",$string);
         $nome = $colunaDados[1];
         $function = $colunaDados[2];
+        $cont = 1;
         } else {
         $string = $linha;
         }
@@ -52,30 +73,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         fclose($arquivo);
         fclose($arquivo2);
     }
+    if($cont==0){
+        echo nl2br("Arquivo Não encontrado\n");
+    }
 }    
 ?>
-<table>
-    <tr>
-        <form action= "Criar_Usuario.php" method = POST>
-            <input type="submit" value="Criar">
-        </form>
-        <form action= "Alterar_Usuario.html" method = POST>
-            <input type="submit" value="Alterar">
-        </form>
-        <form action= "Lista_todos_usuarios.php" method = POST>
-            <input type="submit" value="Listar Todos">
-        </form>
-        <form action= "Lista_um_usuario.php" method = POST>
-            <input type="submit" value="Listar um">
-        </form>
-        <form action= "Excluir_usuario.php" method = POST>
-            <input type="submit" value="Excluir">
-        </form>
-    </tr>
-</table>
 <form action= "Alterar_Usuario.html" method = POST>
-    Nome:<input type= text name= "nome" value=<?php echo $nome ?> disabled=""><br>
     Matricula:<input type= text name= "matricula" value=<?php echo $matricula ?> disabled=""><br>
+    Nome:<input type= text name= "nome" value=<?php echo $nome ?> disabled=""><br>
     Função:<input type= text name= "function" value=<?php echo $function ?> disabled=""><br>
     <input type="submit" value="alterar outro">
 </form>
