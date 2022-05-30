@@ -14,9 +14,29 @@
 
 <body>
 <h1>Excluir Usuário</h1>
+<table>
+    <tr>
+        <form action= "Criar_Usuario.php" method = POST>
+            <input type="submit" value="Criar">
+        </form>
+        <form action= "Alterar_Usuario.html" method = POST>
+            <input type="submit" value="Alterar">
+        </form>
+        <form action= "Lista_todos_usuarios.php" method = POST>
+            <input type="submit" value="Listar Todos">
+        </form>
+        <form action= "Lista_um_usuario.php" method = POST>
+            <input type="submit" value="Listar um">
+        </form>
+        <form action= "Excluir_usuario.php" method = POST>
+            <input type="submit" value="Excluir">
+        </form>
+    </tr>
+</table>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="GET"){
     $matricula = $_GET["matricula"];
+    $cont = 0;
     $arquivo = fopen('Usuario.txt','r+');
     $arquivo2 = fopen('Usuario_Rarcunho.txt', 'w');
     if ($arquivo){
@@ -24,7 +44,8 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         $linha = fgets($arquivo);
         if ($linha==null) break;
         if(preg_match("/$matricula/", $linha)){
-            echo nl2br("Arquivo Excluido com sucesso");
+            echo nl2br("Arquivo Excluido com sucesso\n");
+            $cont = 1;
         } else {
         $string = $linha;
         fwrite($arquivo2, $string);
@@ -45,28 +66,11 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         fclose($arquivo);
         fclose($arquivo2);
     }
+    if($cont==0){
+        echo nl2br("Arquivo Não encontrado\n");
+    }
 }    
 ?>
-<br>
-<table>
-    <tr>
-        <form action= "Criar_Usuario.php" method = POST>
-            <input type="submit" value="Criar">
-        </form>
-        <form action= "Alterar_Usuario.html" method = POST>
-            <input type="submit" value="Alterar">
-        </form>
-        <form action= "Lista_todos_usuarios.php" method = POST>
-            <input type="submit" value="Listar Todos">
-        </form>
-        <form action= "Lista_um_usuario.php" method = POST>
-            <input type="submit" value="Listar um">
-        </form>
-        <form action= "Excluir_usuario.php" method = POST>
-            <input type="submit" value="Excluir">
-        </form>
-    </tr>
-</table>
 <form action= "Excluir_usuario.php" method = GET>
     <br>Digite a Matricula que deseja Excluir:<input type= text name= "matricula" value=''><br>
     <input type="submit" value="Excluir">
