@@ -14,23 +14,6 @@
 
 <body>
 <h1>Criar Usuário</h1>
-<?php
-if($_SERVER["REQUEST_METHOD"]=="GET"){
-    $matricula = $_GET["matricula"];
-    $nome = $_GET["nome"];
-    $function = $_GET["function"];
-    if(!file_exists("Usuario.txt")){
-        $header ="Matrícula;Nome;Função\n";
-        $arquivoUsuaio = fopen("Usuario.txt","w");
-        fwrite ($arquivoUsuaio , $header);
-        fclose($arquivoUsuaio);
-    }
-    $arquivoUsuaio = fopen("Usuario.txt","a") or die ("Arquivo com problema");
-    $linha = $matricula . ";" . $nome . ";" . $function . "\n";
-    fwrite($arquivoUsuaio, $linha);
-    fclose($arquivoUsuaio);
-}    
-?>
 <table>
     <tr>
         <form action= "Criar_Usuario.php" method = POST>
@@ -50,12 +33,42 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         </form>
     </tr>
 </table>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    $matricula = $_GET["matricula"];
+    $nome = $_GET["nome"];
+    $cont = 0;
+    $function = $_GET["function"];
+    if(!file_exists("Usuario.txt")){
+        $header ="Matrícula;Nome;Função\n";
+        $arquivoUsuaio = fopen("Usuario.txt","w");
+        fwrite ($arquivoUsuaio , $header);
+        fclose($arquivoUsuaio);
+    }
+    $arquivo = fopen('Usuario.txt','r+');
+    While(!feof($arquivo)){
+        $linha = fgets($arquivo);
+        $colunaDados = explode(";",$linha);
+        if($colunaDados[0] == $matricula){
+            echo nl2br("Matrícula já existe então digite novamente por favor\n");
+            $cont = 1;
+            break;
+        }
+    }
+    fclose($arquivo);
+    if($cont==0){
+        $arquivoUsuaio = fopen("Usuario.txt","a") or die ("Arquivo com problema");
+        $linha = $matricula . ";" . $nome . ";" . $function . "\n";
+        fwrite($arquivoUsuaio, $linha);
+        fclose($arquivoUsuaio);
+    }
+}    
+?>
 <form action= "Criar_Usuario.php" method = GET>
     Matrícula:<input type= text name= "matricula" value=''><br>
     Nome:<input type= text name= "nome" value=''><br>
     Função:<input type= text name= "function" value=''><br>
     <input type="submit" value="Cadastrar">
 </form>
-
 </body>
 </html>
