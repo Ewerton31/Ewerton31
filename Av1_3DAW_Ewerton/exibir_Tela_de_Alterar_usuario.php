@@ -14,22 +14,6 @@
 
 <body>
 <h1>Alterar Usuario</h1>
-<?php
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $matricula = $_POST["matricula"]; //csv é um formato de texto para linhaXColuna
-    $arquivo = fopen('Usuario.txt','r');
-    While(!feof($arquivo)){
-        $linha = fgets($arquivo);
-        $colunaDados = explode(";",$linha);
-        if($colunaDados[0] == $matricula){
-            $nome = $colunaDados[1];
-            $function = $colunaDados[2];
-            break;
-        }
-    }
-    fclose($arquivo);
-}    
-?>
 <table>
     <tr>
         <form action= "Criar_Usuario.php" method = POST>
@@ -49,11 +33,41 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </form>
     </tr>
 </table>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $matricula = $_POST["matricula"];
+    $arquivo = fopen('Usuario.txt','r');
+    $cont = 0;
+    While(!feof($arquivo)){
+        $linha = fgets($arquivo);
+        $colunaDados = explode(";",$linha);
+        if($colunaDados[0] == $matricula){
+            $nome = $colunaDados[1];
+            $function = $colunaDados[2];
+            $cont = 1;
+            break;
+        }
+    }
+    if($cont==0){
+        echo nl2br("Arquivo Não encontrado\n");
+        $nome = ("Erro");
+        $function = ("Erro");
+    }
+    fclose($arquivo);
+}    
+?>
 <form action= "Alterar_usuario.php" method = POST>
-    Nome:<input type= text name= "nome" value=<?php echo $nome ?>><br>
     Matricula:<input type= text name= "matricula"  value=<?php echo $matricula?> readonly><br>
+    Nome:<input type= text name= "nome" value=<?php echo $nome ?>><br>
     Função:<input type= text name= "function" value=<?php echo $function ?>><br>
-    <input type="submit" value="alterar">
+    <table>
+        <tr>
+            <input type="submit" value="alterar">
 </form>
+            <form action= "Alterar_Usuario.html" method = POST>
+                <input type="submit" value="Voltar">
+            </form>
+        </tr>
+    </table>
 </body>
 </html>
