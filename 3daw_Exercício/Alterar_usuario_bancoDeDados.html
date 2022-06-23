@@ -1,0 +1,86 @@
+<html>
+<head>
+<script>
+        function enviaForm() {
+            let mat = document.getElementById("matricula").value;
+            console.log("mat: " + mat);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                console.log("this.readyState: " + this.readyState);
+                if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+                    document.getElementById("resultado").innerHTML = xhttp.responseText;
+                }
+            };
+            //console.log("this.readyState: " + this.readyState);
+            xhttp.open("GET", "inseriri_usuario_bancoDeDados.php", true);
+            xhttp.send();
+        }
+        function buscarUsuario() {
+            let matBusca = document.getElementById("matBusca").value;
+            console.log("mat: " + mat);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                console.log("this.readyState: " + this.readyState);
+                if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+                    /*xhttp.responseText;
+                    document.getElementById("mat").value = obj.matricula;
+                    document.getElementById("matricula").value = obj.matricula;
+                    document.getElementById("nome").value =  obj.nome;
+                    document.getElementById("funcao").value = obj.funcao;
+                    document.getElementById("senha").value = obj.senha;
+                    console.log("Resposta" + xhttp.responseText);
+                    document.getElementById("msg").innerHTML = xhttp.responseText;
+                    let obj = Json.parse(xhttp.responseText);
+                    console.log("nome" + obj.nome);
+                    console.log("Matricula" + obj.matricula);
+                    console.log("funcao" + obj.funcao);
+                    console.log("senha" + obj.senha);
+                    document.getElementById(formulario).style.display = 'block';
+                    document.getElementById(pedeMat).style.display = 'none';
+                    for(x=0; x<obj.lenght; x++){
+                        
+                    }
+                    */
+                }
+            };
+            //console.log("this.readyState: " + this.readyState);
+            xhttp.open("GET", "http://localhost/3daw/Alterar_usuario_bancoDeDados.php?matricula=" . mat, true);
+            xhttp.send();
+        }
+        function Mudarestado(el) {
+        var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+        else
+            document.getElementById(el).style.display = 'none';
+        };
+    </script>    
+</head>
+<body>
+<h1>Alterar Aluno</h1>
+<br>
+<br>
+<div id="formulario">
+    <form  action="" method="POST">
+        Matricula: <input type=text name="mat" id ="mat" 
+                    value='' disabled> <br>
+                    <input type='hidden' name="matricula" id="matricula"
+                    value='' >
+        nome: <input type="text" name="nome" id="nome" value=''> <br>
+        funcao: <input type="text" name="funcao" id="funcao" value=''> <br>
+        senha: <input type="password" name="senha" id="senha" value=''> <br>
+        <br><br>
+        <input type="button" value="Alterar" onclick="enviaForm();">
+    </form>
+</div>
+<br>
+<div id = "pedeMat">
+        <form>
+            Matricula: <input type=text name="matBusca" id="matBusca" value='' onChange="buscarUsuario();" onChange="Mudarestado('formulario')" > <br>
+        </form>
+    
+</div>
+</body>
+</html>
