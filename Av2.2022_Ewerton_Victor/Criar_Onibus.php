@@ -37,15 +37,16 @@
     </tr>
 </table>
 <form id="CadOnibus">
-    Marca:<input type= text name= "marca" value=''><br>
-    Modelo:<input type= text name= "modelo" value=''><br>
-    Quatidade de Assentos:<input type= text name= "qtdAssentos" value=''><br>
-    Tem Banheiro:<input type= text name= "TBanheiros" value=''><br>
-    Tem Ar Condicionado:<input type= text name= "TArCondionado" value=''><br>
-    Chassis:<input type= text name= "chassis" value=''><br>
-    Placa:<input type= text name= "placa" value=''><br>
+    <span id="ErroCadastro"></span><br>
+    Marca:<input type= text name= "marca" value='' id="marca"><br>
+    Modelo:<input type= text name= "modelo" value='' id="modelo"><br>
+    Quatidade de Assentos:<input type= text name= "qtdAssentos" value='' id="qtdAssentos"><br>
+    Tem Banheiro:<input type= text name= "TBanheiros" value='' id="TBanheiros"><br>
+    Tem Ar Condicionado:<input type= text name= "TArCondionado" value='' id="TArCondionado"><br>
+    Chassis:<input type= text name= "chassis" value='' id="chassis"><br>
+    Placa:<input type= text name= "placa" value='' id="placa"><br>
     <input type="submit" value="Cadastrar">
 </form>
-    <script src="js/Onibus_novo.js"></script>
+<script src="js/Onibus_novo.js"></script>
 </body>
 </html>
