@@ -13,6 +13,9 @@
 </head>
 
 <body>
+<?php
+    include_once("conexao.php");
+?>
 <h1>Criar Onibus</h1>
 <table>
     <tr>
@@ -33,21 +36,7 @@
         </form>
     </tr>
 </table>
-<?php
-if($_SERVER["REQUEST_METHOD"]=="GET"){
-    include_once("conexao.php");
-    $marca = $_GET["marca"];
-    $modelo = $_GET["modelo"];
-    $qtdA = $_GET["qtdAssentos"];
-    $tbam = $_GET["TBanheiros"];
-    $tar = $_GET["TArCondionado"];
-    $chassi = $_GET["chassis"];
-    $placa = $_GET["placa"];
-    $sql = "INSERT INTO `onibus`(`Marca`, `Modelo`, `qtdAssentos`, `temBanheiro`, `temArCondicionado`, `Chassis`, `Placa`) VALUES ('$marca','$modelo','$qtdA','$tbam','$tar','$chassi','$placa');";
-    $resultado = mysqli_query($conn, $sql);
-}    
-?>
-<form action= "Criar_Onibus.php" method = GET>
+<form id="CadOnibus">
     Marca:<input type= text name= "marca" value=''><br>
     Modelo:<input type= text name= "modelo" value=''><br>
     Quatidade de Assentos:<input type= text name= "qtdAssentos" value=''><br>
@@ -57,5 +46,6 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     Placa:<input type= text name= "placa" value=''><br>
     <input type="submit" value="Cadastrar">
 </form>
+    <script src="js/Onibus_novo.js"></script>
 </body>
 </html>
