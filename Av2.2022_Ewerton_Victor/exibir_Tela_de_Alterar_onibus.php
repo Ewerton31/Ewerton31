@@ -22,7 +22,7 @@
         <form action= "Alterar_Onibus.html" method = POST>
             <input type="submit" value="Alterar">
         </form>
-        <form action= "Lista_todos_Onibus.php" method = POST>
+        <form action= "index.php" method = POST>
             <input type="submit" value="Listar Todos">
         </form>
         <form action= "Lista_um_Onibus.php" method = POST>
