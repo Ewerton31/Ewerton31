@@ -14,6 +14,9 @@
 <body>
 <?php
     include_once("conexao.php");
+    /*PROFESSOR NA PROVA TAV FALANDO QUE O BANCO ERA faeterj3dawnoite 
+    SÓ AVISANDO PRO SR NÃO CONFUNDIR MESMO QUE NÓS SOMOS DA TURMA DA MANHÃ 
+    O BANCO QUE FOI DADO PRA GENTE FAZER AINDA É DENOMINADO PELA NOITE*/
 ?>
 <div>
 <h1>Listar todos os Onibus</h1>
