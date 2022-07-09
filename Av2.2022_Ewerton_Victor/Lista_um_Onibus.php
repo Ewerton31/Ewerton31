@@ -13,40 +13,53 @@
 </head>
 
 <body>
-
+<?php
+    include_once("conexao.php");
+?>
 <h1>Listar um Onibus</h1>
 <table>
-    <tr>
-        <form action= "Criar_Onibus.php" method = POST>
-            <input type="submit" value="Criar">
-        </form>
-        <form action= "Alterar_OnibusVer1.php" method = POST>
-            <input type="submit" value="Alterar">
-        </form>
-        <form action= "index.php" method = POST>
-            <input type="submit" value="Listar Todos">
-        </form>
-        <form action= "Lista_um_Onibus.php" method = POST>
-            <input type="submit" value="Listar um">
-        </form>
-        <form action= "Excluir_Onibus.php" method = POST>
-            <input type="submit" value="Excluir">
-        </form>
-    </tr>
+    <thead>
+        <tr>
+            <form action= "Criar_Onibus.php" method = POST>
+                <input type="submit" value="criar">
+            </form>
+            <form action= "Alterar_OnibusVer1.php" method = POST>
+                <input type="submit" value="Alterar">
+            </form>
+            <form action= "index.php" method = POST>
+                <input type="submit" value="Listar Todos">
+            </form>
+            <form action= "Lista_um_Onibus.php" method = POST>
+                <input type="submit" value="Listar um">
+            </form>
+            <form action= "Excluir_Onibus.php" method = POST>
+                <input type="submit" value="Excluir">
+            </form>
+        </tr>
+    </thead>
 </table>
-<form action= "Lista_um_Onibus.php" method = GET>
-    Digite a ID que deseja Listar:<input type= text name= "id" value=''><br>
-    <input type="submit" value="Listar Onibus">
+<span id="ErroCadastro"></span><br>
+<form id="Listum">
+    Digite a Id que deseja Exibir:<input type= text name= "id" value='' id="id">
+    <input type="submit" value="Pesquisar">
 </form>
-<?php
-if($_SERVER["REQUEST_METHOD"]=="GET"){
-    include_once("conexao.php");
-    $Id = $_GET["id"];
-    $sql = "SELECT * FROM `onibus` WHERE id='$Id'";
-    $resultado = mysqli_query($conn, $sql);
-    $ler_resultado = mysqli_fetch_assoc($resultado);
-    echo "Id:" . $ler_resultado['Id'] . "&ensp; Marca:" . $ler_resultado['Marca'] ."&emsp;Modelo:" . $ler_resultado['Modelo'] ."&emsp;qtdAssentos:" . $ler_resultado['qtdAssentos'] ."&emsp;temBanheiro:" . $ler_resultado['temBanheiro']."&emsp;temArCondicionado:" . $ler_resultado['temArCondicionado']."&emsp;Chassis:" . $ler_resultado['Chassis']."&emsp;Placa:" . $ler_resultado['Placa'] ."<br><hr>";
-}    
-?>
+<table>
+     <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>qtdAssentos</th>
+            <th>temBanheiro</th>
+            <th>temArCondicionado</th>
+            <th>Chassis</th>
+            <th>Placa</th>
+        </tr>
+    </thead> 
+    <tbody>
+
+    </tbody>
+</table>
+<script src="js/Onibus_listar_um.js"></script>
 </body>
-</html
+</html>
