@@ -32,7 +32,7 @@
 </table>
 <span id="ErroCadastro"></span><br>
 <form id="AltOnibus">
-    Digite a Id que deseja alterar:<input type= text name= "id" value='' id="id">
+    Digite a Id que deseja alterar:<input type= number name= "id" value='' id="id">
     <input type="submit" value="Pesquisar">
 </form>
 <form id="TelaAlt"></form><br>
