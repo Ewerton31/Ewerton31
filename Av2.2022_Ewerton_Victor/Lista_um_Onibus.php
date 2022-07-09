@@ -37,7 +37,7 @@
 </table>
 <span id="ErroCadastro"></span><br>
 <form id="Listum">
-    Digite a Id que deseja Exibir:<input type= text name= "id" value='' id="id">
+    Digite a Id que deseja Exibir:<input type= number name= "id" value='' id="id">
     <input type="submit" value="Pesquisar">
 </form>
 <table>
