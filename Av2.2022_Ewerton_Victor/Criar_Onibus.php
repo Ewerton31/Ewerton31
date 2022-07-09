@@ -31,9 +31,6 @@
         <form action= "Lista_um_Onibus.php" method = POST>
             <input type="submit" value="Listar um">
         </form>
-        <form action= "Excluir_Onibus.php" method = POST>
-            <input type="submit" value="Excluir">
-        </form>
     </tr>
 </table>
 <form id="CadOnibus">
