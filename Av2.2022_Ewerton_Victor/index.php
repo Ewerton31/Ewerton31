@@ -18,43 +18,44 @@
     SÓ AVISANDO PRO SR NÃO CONFUNDIR MESMO QUE NÓS SOMOS DA TURMA DA MANHÃ 
     O BANCO QUE FOI DADO PRA GENTE FAZER AINDA É DENOMINADO PELA NOITE*/
 ?>
-<div>
-<h1>Listar todos os Onibus</h1>
+<h1>Index Onibus</h1>
 <table>
     <thead>
         <tr>
-            <form action= "Criar_Onibus.php" method = POST>
-                <input type="submit" value="Criar">
+            <form id="Cadastrar">
+                <input type="submit" value="Cadastrar">
             </form>
-            <form action= "Alterar_OnibusVer1.php" method = POST>
+            <form id="TelaAltOnibus">
                 <input type="submit" value="Alterar">
             </form>
-            <form action= "index.php" method = POST>
+            <form id="listOnibus">
                 <input type="submit" value="Listar Todos">
             </form>
-            <form action= "Lista_um_Onibus.php" method = POST>
+            <form id="listOnibus_1">
                 <input type="submit" value="Listar um">
             </form>
         </tr>
     </thead> 
 </table>
-<table>
-     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>qtdAssentos</th>
-            <th>temBanheiro</th>
-            <th>temArCondicionado</th>
-            <th>Chassis</th>
-            <th>Placa</th>
-        </tr>
+<span id="ErroCadastro"></span><br>
+<table border="1">
+    <thead id="headList">
+
     </thead> 
     <tbody>
 
     </tbody>
 </table>
+<form id="Listum">
+
+</form>
+<form id="cadOnibus">
+
+</form>
+<form id="AltOnibus">
+
+</form>
+<form id="TelaAlt"></form><br>
 <script src="js/Onibus.js"></script>
 </body>
 </html>
