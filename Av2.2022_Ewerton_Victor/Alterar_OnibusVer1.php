@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<h1>Alterar Onibus Ver 1</h1>
+<h1>Alterar Onibus</h1>
 <table>
     <tr>
         <form action= "Criar_Onibus.php" method = POST>
@@ -27,9 +27,6 @@
         </form>
         <form action= "Lista_um_Onibus.php" method = POST>
             <input type="submit" value="Listar um">
-        </form>
-        <form action= "Excluir_Onibus.php" method = POST>
-            <input type="submit" value="Excluir">
         </form>
     </tr>
 </table>
