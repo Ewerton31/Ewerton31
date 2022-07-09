@@ -12,15 +12,16 @@
     </style>
 </head>
 <body>
-<h1>Listar todos os Onibus</h1>
 <?php
     include_once("conexao.php");
 ?>
+<div>
+<h1>Listar todos os Onibus</h1>
 <table>
     <thead>
         <tr>
             <form action= "Criar_Onibus.php" method = POST>
-                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Criar">
             </form>
             <form action= "Alterar_OnibusVer1.php" method = POST>
                 <input type="submit" value="Alterar">
@@ -30,9 +31,6 @@
             </form>
             <form action= "Lista_um_Onibus.php" method = POST>
                 <input type="submit" value="Listar um">
-            </form>
-            <form action= "Excluir_Onibus.php" method = POST>
-                <input type="submit" value="Excluir">
             </form>
         </tr>
     </thead> 
