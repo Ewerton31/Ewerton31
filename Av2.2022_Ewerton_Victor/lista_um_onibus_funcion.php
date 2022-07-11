@@ -19,11 +19,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         else{
             $res_Ar="SIM";
         }
+        $Lista.="<table border='1'><thead><tr><th>Id</th><th>Marca</th><th>Modelo</th><th>qtdAssentos</th><th>temBanheiro</th><th>temArCondicionado</th><th>Chassis</th><th>Placa</th></tr></thead>";
         extract($ler_resultado);
-        $Lista .= "<tr><td>$id</td><td>$marca</td><td>$modelo</td><td>$qtdAssentos</td><td>$res_Banheiros</td><td>$res_Ar</td><td>$chassis</td><td>$placa</td></tr>";        
+        $Lista.= "<tr><td>$id</td><td>$marca</td><td>$modelo</td><td>$qtdAssentos</td><td>$res_Banheiros</td><td>$res_Ar</td><td>$chassis</td><td>$placa</td></tr></table>";        
     }
     else{
-        $Lista .= "<tr> Id Nao encontrada</tr>";
+        $Lista.= "Id Nao encontrada";
     }
     echo $Lista;
-}   
+}
