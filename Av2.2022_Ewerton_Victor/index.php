@@ -28,7 +28,7 @@
             <form id="TelaAltOnibus">
                 <input type="submit" value="Alterar">
             </form>
-            <form id="listOnibus">
+            <form id="Tela_listar_todos_Onibus">
                 <input type="submit" value="Listar Todos">
             </form>
             <form id="listOnibus_1">
@@ -38,14 +38,8 @@
     </thead> 
 </table>
 <span id="ErroCadastro"></span><br>
-<table border="1">
-    <thead id="headList">
-
-    </thead> 
-    <tbody>
-
-    </tbody>
-</table>
+<div id="onibus">
+</div>
 <form id="Listum">
 
 </form>
