@@ -24,11 +24,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $nome = $_POST["nome"];
     $funcao = $_POST["function"];
     $senha = $_POST["senha"];
-    $sql = "INSERT INTO `Usuario`(`Nome`, `Matricula`, `Funcao`, `Senha`) VALUES ('$nome','$matricula','$funcao','$senha');";
+    $sql = "SELECT * FROM `usuario` WHERE id='11'";
     $resultado = mysqli_query($conn, $sql);
 }    
 ?>
-<form action= "inseriri_usuario_bancoDeDados_2.0.php" method = "POST">
+<form action= "Alterar_Usuario_BancoDeDados_Ver1.php" method = "POST">
     Matrícula:<input type= text name= "matricula" value=''><br>
     Nome:<input type= text name= "nome" value=''><br>
     Função:<input type= text name= "function" value=''><br>

@@ -19,7 +19,7 @@
         <form action= "Criar_Onibus.php" method = POST>
             <input type="submit" value="Criar">
         </form>
-        <form action= "Alterar_OnibusVer1.php" method = POST>
+        <form action= "Alterar_Onibus.html" method = POST>
             <input type="submit" value="Alterar">
         </form>
         <form action= "index.php" method = POST>
@@ -28,14 +28,14 @@
         <form action= "Lista_um_Onibus.php" method = POST>
             <input type="submit" value="Listar um">
         </form>
+        <form action= "Excluir_Onibus.php" method = POST>
+            <input type="submit" value="Excluir">
+        </form>
     </tr>
 </table>
-<span id="ErroCadastro"></span><br>
-<form id="AltOnibus">
-    Digite a Id que deseja alterar:<input type= number name= "id" value='' id="id">
-    <input type="submit" value="Pesquisar">
+<form action= "exibir_Tela_de_Alterar_onibus.php" method = POST>
+    Digite a Id que deseja alterar:<input type= text name= "id" value=''><br>
+    <input type="submit" value="alterar">
 </form>
-<form id="TelaAlt"></form><br>
-<script src="js/Onibus_alterar.js"></script>
 </body>
 </html>

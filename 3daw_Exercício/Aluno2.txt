@@ -1,4 +1,4 @@
-Matricula;Nome;Email;DataNasc
-1710470400012;Leonardo Kitsune;LeoKit@gmail.com;07/03/1993
-1710470400010;Wilson Rafael;Cartuchito@gmail.com;31/12/1992
-1710470400023;Rosangela Baiana De Freitas ;rosangelafreitas0202@gmail.com;07/03/1995
+matricula;nome;email;dataNasc
+1710470400010;Dio Brando;victorewertonpitbull@gmail.com;07/03/1992
+1710470400023;Rosa Maria;rosangelafreitas0202@gmail.com;07/12/1999
+1710470400022;Rodrigo Mussi;LeoKit@gmail.com;07/03/1992

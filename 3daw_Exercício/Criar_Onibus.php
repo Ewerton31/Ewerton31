@@ -35,11 +35,12 @@
 </table>
 <form id="CadOnibus">
     <span id="ErroCadastro"></span><br>
+    Id:<input type= number name= "id" value='' id="id"><br>
     Marca:<input type= text name= "marca" value='' id="marca"><br>
     Modelo:<input type= text name= "modelo" value='' id="modelo"><br>
-    Quatidade de Assentos:<input type= text name= "qtdAssentos" value='' id="qtdAssentos"><br>
-    Tem Banheiro:<input type= text name= "TBanheiros" value='' id="TBanheiros"><br>
-    Tem Ar Condicionado:<input type= text name= "TArCondionado" value='' id="TArCondionado"><br>
+    Quatidade de Assentos:<input type= number name= "qtdAssentos" value='' id="qtdAssentos"><br>
+    Tem Banheiro:<input type= text name= "TBanheiros" value='' id="TBanheiros" placeholder="Digite SIM/NAO maiusculo"><br>
+    Tem Ar Condicionado:<input type= text name= "TArCondionado" value='' id="TArCondionado" placeholder="Digite SIM/NAO maiusculo"><br>
     Chassis:<input type= text name= "chassis" value='' id="chassis"><br>
     Placa:<input type= text name= "placa" value='' id="placa"><br>
     <input type="submit" value="Cadastrar">

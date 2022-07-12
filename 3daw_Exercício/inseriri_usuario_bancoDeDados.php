@@ -22,8 +22,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $senha = $_POST["senha"];
     $user='root';
     $pass='';
-    $dbh = new PDO('mysql:host=localhost;dbname=Faeterj3dawExer', $user, $pass);
-    $sql = "INSERT INTO `usuario`(`Nome`, `Matricula`, `Funcao`, `Senha`) VALUES ('$nome','$matricula','$funcao','$senha')";
+    $dbh = new PDO('mysql:host=localhost;dbname=faeterj3dawexer', $user, $pass);
+    $sql = "INSERT INTO `Usuario`(`Nome`, `Matricula`, `Funcao`, `Senha`) VALUES ('$nome','$matricula','$funcao','$senha');";
     print_r($sql);
     try{
         $result = $dbh->query($sql);
@@ -32,8 +32,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         die();
-    }
-    
+    } 
 }    
 ?>
 <form action= "inseriri_usuario_bancoDeDados.php" method = "POST">

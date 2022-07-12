@@ -13,13 +13,33 @@
 </head>
 
 <body>
-<h1>Aluno Alterado com Sucesso</h1>
+<h1>Incluir Aluno</h1>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $matricula = $_POST["matricula"]; //csv é um formato de texto para linhaXColuna
     $nome = $_POST["nome"];
     $emai = $_POST["email"];
     $data = $_POST["dataNasc"];
+    /*$arquivoAluno = fopen("Aluno.txt", "r") or die ("Arquivo com problema");
+    $arquivoAluno2 = fopen("Aluno2.txt","w") or die ("Arquivo com problema");
+    $header ="matricula;nome;email;dataNasc\n";
+    fwrite ($arquivoAluno2 , $header);
+    while(!feof($arquivoAluno)){
+        $linhas [] = fgets($arquivoAluno);
+        echo $linhas[0];
+        $colunaDados = explode (";", $linha);
+        
+        if($colunaDados[0] = $matricula){
+            echo $colunaDados[0];
+            $colunaDados[2] = $nome;
+            $colunaDados[4] = $emai;
+            $colunaDados[6] = $data;
+        }
+        fwrite($arquivoAluno2, $linha);
+    }
+    fclose($arquivoAluno);
+    fclose($arquivoAluno2);*/
+    // abre o arquivo colocando o ponteiro de escrita no final
     $linha_final = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
     $arquivo = fopen('Aluno.txt','r+');
     $arquivo2 = fopen('Aluno2.txt', 'w');
@@ -30,10 +50,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         if(preg_match("/$matricula/", $linha)){
         $linha_inicio=$linha;
         $string = str_replace($linha_inicio, $linha_final, $linha);
-        $colunaDados = explode(";",$string);
-        $nome = $colunaDados[1];
-        $emai = $colunaDados[2];
-        $data = $colunaDados[3];
         } else {
         $string = $linha;
         }
@@ -56,12 +72,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 }    
 ?>
-<form action= "Alterar_aluno.html" method = POST>
-    Matricula:<input type= text name= "matricula" value=<?php echo $matricula ?> disabled=""><br>
-    Nome:<input type= text name= "nome" value=<?php echo $nome ?> disabled=""><br>
-    email:<input type= text name= "email" value=<?php echo $emai ?> disabled=""><br>
-    Data Nascimento:<input type= text name= "dataNasc" value=<?php echo $data ?> disabled=""><br>
-    <input type="submit" value="alterar outor">
+<form action= "Editar.php" method = POST>
+    Digite a Matrícula que deseja alterar:<input type= text name= "matricula" value=''><br>
+    Nome:<input type= text name= "nome" value=''><br>
+    email:<input type= text name= "email" value=''><br>
+    Data Nascimento:<input type= text name= "dataNasc" value=''><br>
+    <input type="submit" value="alterar">
 </form>
 </body>
 </html>

@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $linha = fgets($arquivo);
         if ($linha==null) break;
         if(preg_match("/$matricula/", $linha)){
-            echo 'Arquivo Excluido com sucesso/n';
+            echo 'Arquivo Excluido com sucesso\n';
         } else {
         $string = $linha;
         fwrite($arquivo2, $string);

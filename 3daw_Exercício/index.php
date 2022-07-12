@@ -9,6 +9,13 @@
         margin-right: -50%;
         transform: translate(-50%, -50%) 
     }
+    /*ul{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) 
+    }*/
     </style>
 </head>
 <body>
@@ -16,7 +23,7 @@
     include_once("conexao.php");
 ?>
 <div>
-<h1>Listar todos os Onibus</h1>
+<h1>Listar todos os Onibus 2</h1>
 <table>
     <thead>
         <tr>
@@ -35,23 +42,20 @@
         </tr>
     </thead> 
 </table>
-<table>
-     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>qtdAssentos</th>
-            <th>temBanheiro</th>
-            <th>temArCondicionado</th>
-            <th>Chassis</th>
-            <th>Placa</th>
-        </tr>
-    </thead> 
-    <tbody>
+<div id="Lista">
 
-    </tbody>
-</table>
-<script src="js/Onibus.js"></script>
+</div>
+
+<div id="paginacao">
+    <form id= "filtro">
+        <label>Ordenar</label>
+        <select name="Ordem" id="ordenar">
+            <option name ="Ordem"value="c" id="op">Crescente</option>
+            <option name="Ordem" value="d" id="op">Decrescente</option>
+        </select>
+        <input type="submit" value="Filtrar">
+    </form>
+</div>
+<script src="js/Onibus2.js"></script>
 </body>
 </html>

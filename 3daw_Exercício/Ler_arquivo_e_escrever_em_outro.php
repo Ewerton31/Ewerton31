@@ -22,25 +22,31 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $data = $_POST["dataNasc"];
     $linha_final = $matricula . ";" . $nome . ";" . $emai. ";" . $data . "\n";
     $arquivo = fopen('Aluno.txt','r+');
-    $arquivo2 = fopen('Aluno2.txt', 'w');
     if ($arquivo){
     while(true){ 
         $linha = fgets($arquivo);
         if ($linha==null) break;
+        // busca na linha atual o conteudo que vai ser alterado
         if(preg_match("/$matricula/", $linha)){
         $linha_inicio=$linha;
-        $string = str_replace($linha_inicio, $linha_final, $linha);
-        } else {
-        $string = $linha;
+        $string .= str_replace($linha_inicio, $linha_final, $linha);
+        } else { 
+        // vai colocando tudo numa nova string
+        $string .= $linha;
         }
-        fwrite($arquivo2, $string);
-        }
-    fclose($arquivo);
-    fclose($arquivo2);
     }
+    // move o ponteiro para o inicio pois o ftruncate() nao fara isso
+    rewind($arquivo);
+    // truca o arquivo apagando tudo dentro dele
+    ftruncate($arquivo, 0);
+    // reescreve o conteudo dentro do arquivo
+    if (!fwrite($arquivo, $string)) die('Não foi possível atualizar o arquivo.');
+    echo 'Arquivo atualizado com sucesso';
+    fclose($arquivo);
+}
 }    
 ?>
-<form action= "Editar.php" method = POST>
+<form action= "Ler_arquivo_e_escrever_em_outro.php" method = POST>
     Digite a Matrícula que deseja alterar:<input type= text name= "matricula" value=''><br>
     Nome:<input type= text name= "nome" value=''><br>
     email:<input type= text name= "email" value=''><br>

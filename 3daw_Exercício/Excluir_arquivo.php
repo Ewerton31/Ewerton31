@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<h1>Aluno Alterado com Sucesso</h1>
+<h1>Excluir Arquivo</h1>
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $nome = $_POST["nome"];

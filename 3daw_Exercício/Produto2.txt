@@ -1,0 +1,3 @@
+id;nome;cod;descrição;imagem;valor;quantidade;peso
+12345;Ewerton Victor De Freitas Costa;234444;é algo pra comer;https://www.google.com/search?q=comida&rlz=1C1GCEU_pt-BRBR998BR998&sxsrf=ALiCzsauqTYlFSYNg6XbSxn0g8C6qjXqhQ:1652359608116&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj0o-6b_9n3AhWpHrkGHbgHB10Q_AUoAnoECAIQBA&biw=1366&bih=657&dpr=1#imgrc=Rs_vr423v9KaBM;R$344,50;8;50 gramas
+4545252;Rodrigo Mussi;454545;é algo pra comer forte;https://www.google.com/search?q=comida&rlz=1C1GCEU_pt-BRBR998BR998&sxsrf=ALiCzsauqTYlFSYNg6XbSxn0g8C6qjXqhQ:1652359608116&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj0o-6b_9n3AhWpHrkGHbgHB10Q_AUoAnoECAIQBA&biw=1366&bih=657&dpr=1#imgrc=Rs_vr423v9KaBM;R$344,50;40;50 gramas

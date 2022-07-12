@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<h1>Alterar Onibus</h1>
+<h1>Excluir Onibus</h1>
 <table>
     <tr>
         <form action= "Criar_Onibus.php" method = POST>
@@ -28,14 +28,22 @@
         <form action= "Lista_um_Onibus.php" method = POST>
             <input type="submit" value="Listar um">
         </form>
+        <form action= "Excluir_Onibus.php" method = POST>
+            <input type="submit" value="Excluir">
+        </form>
     </tr>
 </table>
-<span id="ErroCadastro"></span><br>
-<form id="AltOnibus">
-    Digite a Id que deseja alterar:<input type= number name= "id" value='' id="id">
-    <input type="submit" value="Pesquisar">
+<?php
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    include_once("conexao.php");
+    $id = $_GET["Id"];
+    $sql = "DELETE FROM `onibus` WHERE Id='$id'";
+    $resultado = mysqli_query($conn, $sql);
+}    
+?>
+<form action= "Excluir_Onibus.php" method = GET>
+    <br>Digite a Id que deseja Excluir:<input type= text name= "Id" value=''><br>
+    <input type="submit" value="Excluir">
 </form>
-<form id="TelaAlt"></form><br>
-<script src="js/Onibus_alterar.js"></script>
 </body>
-</html>
+</html
