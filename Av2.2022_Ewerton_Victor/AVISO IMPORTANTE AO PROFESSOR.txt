@@ -1,2 +1,11 @@
-matricula;nome;email;dataNasc
-171047040006514;Leonardo Kitsune;;
+Professor me desculpe sou novo usando o GitHub e só percebi agora que só possível baixar os programas do Github que estão no
+repositório total, não da pra baixar somente uma pasta do repositório, pra baixar a minha prova do gitHub é só voltar pro repositório
+Ewerton31 e baixar ele inteiro e a prova ta na pasta Av2.2022_Ewerton_Victor extrai somente ela do .ra se achar mai fácil 
+de vizualizar, eu já postei lá nos comentários do Class Room um repositório com os mesmos progamas da pasta denomidado
+Av2EwertonVictor o meso vale pra Av1 postei nos comentários o link com o repositório só dela se quiser, fiz
+isso pra facilitar do senhor de baixar os arquivos e não precisar baixar o repositório Ewerton31 inteiro que é muito grande
+seila, só queria evitar algum mal intendido
+
+outra coisa pra importar o banco de dados inteiro tive que importar 3 vezes, 1º importa o data base, 
+2º importa o banco e 3º importa os valores que já havia cadastrado (acho que sr já deve ter ele aí então provavelmente não vei ser um problema 
+mas só avisando) tbm usei ele no servido MySQl e não no Maria DB
