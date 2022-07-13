@@ -8,9 +8,15 @@ const cadOnibus = document.getElementById("cadOnibus");
 const TelaAltOnibus = document.getElementById("TelaAltOnibus");
 const AltOnibus = document.getElementById("AltOnibus");
 const TelaAlt = document.getElementById("TelaAlt");
-const pagina=1;
+const filtro = document.getElementById("filtro");
 const listOnibus = async (pagina)=>{
     const Valor_Lista = await fetch("./Lista_todos_Onibus.php?pagina="+ pagina);
+    const resp = await Valor_Lista.text();
+    onibus.innerHTML = resp; 
+}
+const listOnibusDecres = async (pagina)=>{
+    console.log("Entrou descenfo");
+    const Valor_Lista = await fetch("./Listar_onibus_decrescente.php?pagina="+ pagina);
     const resp = await Valor_Lista.text();
     onibus.innerHTML = resp; 
 }
@@ -21,11 +27,36 @@ Tela_listar_todos_Onibus.addEventListener("submit", async (e)=>{
     cadOnibus.innerHTML = "";
     Listum.innerHTML ="";
     ErroCadastro.innerHTML = "";
+    onibus.innerHTML = "";
     Cadastrar.reset();
     e.preventDefault();
+    filtro.innerHTML = "<form id= 'filtro'><label>Ordenar</label><select name='Ordem' value='' id='ordenar'><option value='c'>Crescente</option><option value='d'>Decrescente</option></select><input type='submit' value='Filtrar'></form>";
     listOnibus(1);
 });
+filtro.addEventListener("submit", async (e)=>{
+    console.log("Entrou graca a deus");
+    TelaAlt.innerHTML = "";
+    AltOnibus.innerHTML = "";
+    cadOnibus.reset();
+    cadOnibus.innerHTML = "";
+    Listum.innerHTML ="";
+    ErroCadastro.innerHTML = "";
+    onibus.innerHTML = "";
+    e.preventDefault();
+    console.log(document.getElementById("ordenar").value);
+    if(document.getElementById("ordenar").value =='c'){
+        e.preventDefault();
+        listOnibus(1);
+        console.log("Entrou de vez");
+    }
+    else{
+        e.preventDefault();
+        listOnibusDecres(1);
+        console.log("Entrou muinyo");
+    }
+});
 listOnibus_1.addEventListener("submit", async (e)=>{
+    filtro.innerHTML ="";
     TelaAlt.innerHTML ="";
     AltOnibus.innerHTML = "";
     e.preventDefault();
@@ -64,7 +95,8 @@ Cadastrar.addEventListener("submit", async (e)=>{
     e.preventDefault();
     Listum.innerHTML ="";
     ErroCadastro.innerHTML = "";
-    onibus.innerHTML = ""; 
+    onibus.innerHTML = "";
+    filtro.innerHTML ="";
     cadOnibus.innerHTML = "Id:<input type= number name= 'id' value='' id='id'><br> Marca:<input type= text name= 'marca' value='' id='marca'><br> Modelo:<input type= text name= 'modelo' value='' id='modelo'><br>Quatidade de Assentos:<input type= number name= 'qtdAssentos' value='' id='qtdAssentos'><br> Tem Banheiro:<input type= text name= 'TBanheiros' value='' id='TBanheiros' placeholder='Digite SIM/NAO maiusculo'><br> Tem Ar Condicionado:<input type= text name= 'TArCondionado' value='' id='TArCondionado' placeholder='Digite SIM/NAO maiusculo'><br> Chassis:<input type= text name= 'chassis' value='' id='chassis'><br> Placa:<input type= text name= 'placa' value='' id='placa'><br> <input type='submit' value='Cadastrar'>";
 });
 cadOnibus.addEventListener("submit", async (e)=>{
@@ -75,6 +107,7 @@ cadOnibus.addEventListener("submit", async (e)=>{
         /*if((document.getElementById("TBanheiros").value == 1 || document.getElementById("TBanheiros").value == 0) && (document.getElementById("TArCondionado").value == 1 || document.getElementById("TArCondionado").value ==0)){*/    
             if((document.getElementById("TBanheiros").value == 'SIM' || document.getElementById("TBanheiros").value == 'NAO') && (document.getElementById("TArCondionado").value == 'SIM' || document.getElementById("TArCondionado").value =='NAO')){
                 e.preventDefault();
+                ErroCadastro.innerHTML = "Onibus Cadastrado com Sussesso";
                 const dadosOnibus = new FormData(cadOnibus);
                 dadosOnibus.append("add", 1);
                 const dadosCad = await fetch("./Cadastrar_onibus.php",{
@@ -98,6 +131,7 @@ TelaAltOnibus.addEventListener("submit", async (e)=>{
     onibus.innerHTML = "";
     Listum.innerHTML ="";
     ErroCadastro.innerHTML = "";
+    filtro.innerHTML ="";
     AltOnibus.innerHTML = " Digite a Id que deseja alterar:<input type= number name= 'id' value='' id='id'><input type='submit' value='Pesquisar'>";
 });
 AltOnibus.addEventListener("submit", async (e)=>{
