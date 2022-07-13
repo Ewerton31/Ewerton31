@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
             else{
                 $res_Ar="SIM";
             }
-            $Lista .= "<tbody><tr><td>$id</td><td>$marca</td><td>$modelo</td><td>$qtdAssentos</td><td>$res_Banheiros</td><td>$res_Ar</td><td>$chassis</td><td>$placa</td></tr></tbody>";
+            $Lista .= "<tbody><tr><td>$id</td><td>$modelo</td><td>$modelo</td><td>$qtdAssentos</td><td>$res_Banheiros</td><td>$res_Ar</td><td>$chassis</td><td>$placa</td></tr></tbody>";
         }
         //qantidad de registros
         $sqlPag="SELECT COUNT(id) AS num_result FROM onibus";
@@ -58,3 +58,4 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         echo $Lista;
     }
 }    
+    
