@@ -23,7 +23,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $Valore .= "Id:<input type= number name= 'id' value= $id id= 'id' readonly><br> Marca:<input type= text name= 'marca' value=$marca id= 'marca'><br> Modelo:<input type= text name= 'modelo' value=$modelo id= 'modelo'><br> Quatidade de Assentos:<input type= number name= 'qtdAssentos' value=$qtdAssentos id= 'qtdAssentos'><br> Tem Banheiro:<input type= text name= 'TBanheiros' value=$res_Banheiros id= 'TBanheiros'><br> Tem Ar Condicionado:<input type= text name= TArCondionado value=$res_Ar id= 'TArCondionado'><br> Chassis:<input type= text name= 'chassis' value=$chassis id= 'chassis'><br> Placa:<input type= text name= 'placa' value=$placa id= 'placa'><br><input type='submit'value='alterar'>";
     }
     else{
-        $Valore .= "Id não encontrado";
+        $Valore .= "Id nao encontrado";
     }
     echo $Valore;
 }    
+    
