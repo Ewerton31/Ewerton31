@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php
-    include_once("conexao.php");
+    
     /*PROFESSOR NA PROVA TAV FALANDO QUE O BANCO ERA faeterj3dawnoite 
     SÓ AVISANDO PRO SR NÃO CONFUNDIR MESMO QUE NÓS SOMOS DA TURMA DA MANHÃ 
     O BANCO QUE FOI DADO PRA GENTE FAZER AINDA É DENOMINADO PELA NOITE*/
@@ -38,6 +38,9 @@
     </thead> 
 </table>
 <span id="ErroCadastro"></span><br>
+<form id= "filtro">
+
+</form>
 <div id="onibus">
 </div>
 <form id="Listum">
