@@ -107,13 +107,14 @@ cadOnibus.addEventListener("submit", async (e)=>{
         /*if((document.getElementById("TBanheiros").value == 1 || document.getElementById("TBanheiros").value == 0) && (document.getElementById("TArCondionado").value == 1 || document.getElementById("TArCondionado").value ==0)){*/    
             if((document.getElementById("TBanheiros").value == 'SIM' || document.getElementById("TBanheiros").value == 'NAO') && (document.getElementById("TArCondionado").value == 'SIM' || document.getElementById("TArCondionado").value =='NAO')){
                 e.preventDefault();
-                ErroCadastro.innerHTML = "Onibus Cadastrado com Sussesso";
                 const dadosOnibus = new FormData(cadOnibus);
                 dadosOnibus.append("add", 1);
                 const dadosCad = await fetch("./Cadastrar_onibus.php",{
                 method:"POST",
                 body: dadosOnibus,
                 });
+                const respcad = await dadosCad.text();
+                ErroCadastro.innerHTML = respcad; 
                 cadOnibus.reset();
                 Cadastrar.reset();
         }else{
