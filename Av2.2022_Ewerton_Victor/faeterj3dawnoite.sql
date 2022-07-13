@@ -44,16 +44,16 @@ CREATE TABLE IF NOT EXISTS `onibus` (
 --
 
 INSERT INTO `onibus` (`id`, `marca`, `modelo`, `qtdAssentos`, `temBanheiro`, `temArCondicionado`, `chassis`, `placa`) VALUES
-(9, 'Torino ', '157', 18, 1, 1, 'LO 815', 'TP134567'),
-(2, 'Volvo', '717', 22, 0, 0, 'Monobloco', 'E200011'),
-(3, 'Jimbei', '455', 18, 0, 1, 'Scania', 'AU23476'),
-(4, 'Volkswagen', '820', 20, 1, 1, 'Subchassi', 'BR30651'),
-(5, 'Volvo', '234', 22, 1, 1, 'Scania', 'JR67790'),
-(6, 'GranVia', '854', 20, 1, 1, 'Subchassi', 'URI2022'),
-(7, 'Volvo', '790', 24, 1, 0, 'Scania', 'WS234512'),
-(1, 'Volkswagen', '549', 18, 1, 0, 'Monobloco', 'URI2019'),
-(8, 'Volvo', '717', 27, 1, 1, 'Subchassi', 'TV20043'),
-(10, 'Jimbei', '718', 26, 0, 0, 'LO 815', 'PO20034');
+('9', 'Torino ', '157', 18, 1, 1, 'LO 815', 'TP134567'),
+('2', 'Volvo', '717', 22, 0, 0, 'Monobloco', 'E200011'),
+('3', 'Jimbei', '455', 18, 0, 1, 'Scania', 'AU23476'),
+('4', 'Volkswagen', '820', 20, 1, 1, 'Subchassi', 'BR30651'),
+('5', 'Volvo', '234', 22, 1, 1, 'Scania', 'JR67790'),
+('6', 'GranVia', '854', 20, 1, 1, 'Subchassi', 'URI2022'),
+('7', 'Volvo', '790', 24, 1, 0, 'Scania', 'WS234512'),
+('1', 'Volkswagen', '549', 18, 1, 0, 'Monobloco', 'URI2019'),
+('8', 'Volvo', '717', 27, 1, 1, 'Subchassi', 'TV20043'),
+('10', 'Jimbei', '718', 26, 0, 0, 'LO 815', 'PO20034');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
