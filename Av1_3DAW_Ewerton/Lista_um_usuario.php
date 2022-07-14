@@ -56,8 +56,8 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
 }    
 ?>
 <form action= "Lista_um_usuario.php" method = GET>
-    Digite a ID que deseja Listar:<input type= text name= "matricula" value=''><br>
+    Digite a ID que deseja Listar:<input type= number name= "matricula" value=''><br>
     <input type="submit" value="Listar Produto">
 </form>
 </body>
-</html
+</html>
