@@ -9,6 +9,7 @@ const TelaAltOnibus = document.getElementById("TelaAltOnibus");
 const AltOnibus = document.getElementById("AltOnibus");
 const TelaAlt = document.getElementById("TelaAlt");
 const filtro = document.getElementById("filtro");
+const titulo = document.getElementById("titulo");
 const listOnibus = async (pagina)=>{
     const Valor_Lista = await fetch("./Lista_todos_Onibus.php?pagina="+ pagina);
     const resp = await Valor_Lista.text();
@@ -30,6 +31,7 @@ Tela_listar_todos_Onibus.addEventListener("submit", async (e)=>{
     onibus.innerHTML = "";
     Cadastrar.reset();
     e.preventDefault();
+    titulo.innerHTML = "Listar todos onibus";
     filtro.innerHTML = "<form id= 'filtro'><label>Ordenar</label><select name='Ordem' value='' id='ordenar'><option value='c'>Crescente</option><option value='d'>Decrescente</option></select><input type='submit' value='Filtrar'></form>";
     listOnibus(1);
 });
@@ -65,6 +67,7 @@ listOnibus_1.addEventListener("submit", async (e)=>{
     Listum.innerHTML ="";
     onibus.innerHTML = "";
     ErroCadastro.innerHTML = "";
+    titulo.innerHTML = "Listar um onibus";
     Cadastrar.reset();
     Listum.innerHTML = "Digite a Id que deseja Exibir:<input type= number name= 'id' value='' id='id'><input type='submit' value='Pesquisar'>";
 });
@@ -97,6 +100,7 @@ Cadastrar.addEventListener("submit", async (e)=>{
     ErroCadastro.innerHTML = "";
     onibus.innerHTML = "";
     filtro.innerHTML ="";
+    titulo.innerHTML = "Cadastrar onibus";
     cadOnibus.innerHTML = "Id:<input type= number name= 'id' value='' id='id'><br> Marca:<input type= text name= 'marca' value='' id='marca'><br> Modelo:<input type= text name= 'modelo' value='' id='modelo'><br>Quatidade de Assentos:<input type= number name= 'qtdAssentos' value='' id='qtdAssentos'><br> Tem Banheiro:<input type= text name= 'TBanheiros' value='' id='TBanheiros' placeholder='Digite SIM/NAO maiusculo'><br> Tem Ar Condicionado:<input type= text name= 'TArCondionado' value='' id='TArCondionado' placeholder='Digite SIM/NAO maiusculo'><br> Chassis:<input type= text name= 'chassis' value='' id='chassis'><br> Placa:<input type= text name= 'placa' value='' id='placa'><br> <input type='submit' value='Cadastrar'>";
 });
 cadOnibus.addEventListener("submit", async (e)=>{
@@ -133,6 +137,7 @@ TelaAltOnibus.addEventListener("submit", async (e)=>{
     Listum.innerHTML ="";
     ErroCadastro.innerHTML = "";
     filtro.innerHTML ="";
+    titulo.innerHTML = "Alterar onibus";
     AltOnibus.innerHTML = " Digite a Id que deseja alterar:<input type= number name= 'id' value='' id='id'><input type='submit' value='Pesquisar'>";
 });
 AltOnibus.addEventListener("submit", async (e)=>{
