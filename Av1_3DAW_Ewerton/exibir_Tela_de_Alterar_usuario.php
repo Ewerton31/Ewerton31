@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }    
 ?>
 <form action= "Alterar_usuario.php" method = POST>
-    Matricula:<input type= text name= "matricula"  value=<?php echo $matricula?> readonly><br>
+    Matricula:<input type= number name= "matricula"  value=<?php echo $matricula?> readonly><br>
     Nome:<input type= text name= "nome" value=<?php echo $nome ?>><br>
     Função:<input type= text name= "function" value=<?php echo $function ?>><br>
     <table>
