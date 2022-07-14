@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
 }    
 ?>
 <form action= "Excluir_usuario.php" method = GET>
-    <br>Digite a Matricula que deseja Excluir:<input type= text name= "matricula" value=''><br>
+    <br>Digite a Matricula que deseja Excluir:<input type= number name= "matricula" value=''><br>
     <input type="submit" value="Excluir">
 </form>
 </body>
