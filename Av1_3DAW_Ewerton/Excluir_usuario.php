@@ -76,4 +76,4 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     <input type="submit" value="Excluir">
 </form>
 </body>
-</html
+</html>
