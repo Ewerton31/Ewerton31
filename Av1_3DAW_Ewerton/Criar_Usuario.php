@@ -61,6 +61,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         $linha = $matricula . ";" . $nome . ";" . $function . "\n";
         fwrite($arquivoUsuaio, $linha);
         fclose($arquivoUsuaio);
+        echo nl2br("Matrícula Cadastrada com sussesso\n");
     }
 }    
 ?>
