@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
 }    
 ?>
 <form action= "Criar_Usuario.php" method = GET>
-    Matrícula:<input type= text name= "matricula" value=''><br>
+    Matrícula:<input type= number name= "matricula" value=''><br>
     Nome:<input type= text name= "nome" value=''><br>
     Função:<input type= text name= "function" value=''><br>
     <input type="submit" value="Cadastrar">
